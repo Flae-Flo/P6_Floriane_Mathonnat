@@ -4,7 +4,7 @@ const validator = require('validator');
 
 const User = require('../models/User');
 
-/* Fonction d'inscription */
+// Fonction d'inscription
 exports.signup = (req, res, next) => {
   // Vérification de la validité de l'adresse email et salage du mot de passe
   if (validator.isEmail(req.body.email, { blacklisted_chars: '$="' })) {
@@ -25,7 +25,7 @@ exports.signup = (req, res, next) => {
   }
 };
 
-/* Fonction de connexion */
+// Fonction de connexion
 exports.login = (req, res, next) => {
   User.findOne({ email: req.body.email })
     .then((user) => {
